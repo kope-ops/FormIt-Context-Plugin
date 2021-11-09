@@ -83,7 +83,9 @@
      */
     const getOSMData = async (bbox) => {
         const filters = [ "building" ]
-        const endpoint = "http://overpass-api.de/api/interpreter"
+        
+        const endpoint = "https://overpass-api.de/api/interpreter"
+
         const bounds = `${bbox[1]},${bbox[0]},${bbox[3]},${bbox[2]}`
 
         let query = `?data=[out:json][timeout:${constants.apiTimeout}][bbox:${bounds}];`
