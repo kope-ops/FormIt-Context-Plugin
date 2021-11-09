@@ -1,0 +1,7 @@
+{
+    "PluginName": "3D Context Creator",
+    "PluginDescription": "A panel plugin that helps generate the 3D context for your project site in FormIt",
+    "PluginType": "Panel",
+    "Panel": "PLUGINLOCATION/plugin.html",
+    "PanelIcon": "PLUGINLOCATION/plugin.png"
+}

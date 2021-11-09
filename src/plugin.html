@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3d Context Creator</title>
+    <link href="plugin.css" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
+    </style> 
+
+</head>
+<body>
+    <div class="pluginContainer">
+        
+        <form>
+            <h1>3D Context Creator</h1>
+
+            <img class="pluginIcon center" src="./assets/images/u1.png" />
+
+            <label>1. Click the   <img class="inlineIcon" src="./assets/images/setlocationicon.png" />   icon in the toolbar to set location.
+            </label> 
+
+            <label>2. Adjust the square radius from the coordinates (meter)</label>
+            
+            <div class="range-wrap" style="--min:100; --max:1000;--step:50;">
+                <input id="Radius" class="range" type="range" value="100" min="100" max="1000" step="50" oninput="this.nextElementSibling.value = this.value" />
+                <output class="bubble">100</output>                
+            </div>          
+          
+            <div class="columns">
+
+                <div class="column">
+                    <label>Latitude</label>
+                    <input id="Latitude" type="number" value="51.50101113819226" />
+                </div>
+
+                <div class="column">
+                    <label>Longitude</label>
+                    <input id="Longitude" type="number" value="-0.12618066018022342" />
+                </div>
+
+            </div> 
+            
+            <input id="CreateButton" type="button" value="Create" />        
+            
+        </form>
+
+
+        <!-- Load Lodash utilities https://lodash.com/ -->
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js" integrity="sha256-qXBd/EfAdjOA2FGrGAG+b3YBn2tn5A6bhz+LSgYD96k=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/osmtogeojson@3.0.0-beta.4/osmtogeojson.js"></script>
+        <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.5/proj4.js" integrity="sha512-MMmVaQGDVI3Wouc5zT5G7k/snN9gPqquIhZsHgIIHVDlRgYTYGxrwu6w482iIhAq8n5R6+pcBgpGgxFFBz7rZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!--Do not remove below scripts unless you know what you're doing-->
+        <script type="text/javascript" src="https://formit3d.github.io/SharedPluginUtilities/FormIt.js"></script>
+        <script type="text/javascript" src="https://formit3d.github.io/SharedPluginUtilities/FormItInterface.js"></script>
+        <script type="text/javascript" src="https://formit3d.github.io/SharedPluginUtilities/FormItPluginUtils.js"></script>
+        <script type="text/javascript" src="plugin.js"></script>
+        <script type="text/javascript">
+            FormItInterface.Initialize();
+        </script>
+
+    </div>
+</body>
+</html>

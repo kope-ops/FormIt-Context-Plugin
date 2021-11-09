@@ -1,0 +1,204 @@
+    .pluginContainer {
+        font-family: 'Nunito', sans-serif;
+        padding: 10px;
+        color: #4675A8;
+        margin-left: 25px;
+        margin-right: 25px; 
+    }
+
+    #ImportCoord{
+    background-color: transparent;
+    border: 3px solid #4675A8;
+    color: #4675A8;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    padding: 6px;
+
+    }
+    #ImportCoord:hover{
+        background-color:  #acb5bf48;
+        color: #4675A8;
+    }
+
+    .columns
+    { 
+        display: grid;
+        grid-auto-flow: column;
+        grid-column-gap: 10px;
+    }
+
+    .column
+    {
+        display: grid;
+        flex-direction:column;
+    }
+    
+    #Latitude
+    {
+        color: #81888f;
+        font-family: 'Nunito', sans-serif;
+        text-align: left;
+    }
+    
+    #Longitude
+    {
+        color: #81888f;
+        font-family: 'Nunito', sans-serif;
+        text-align: left;
+    }
+
+    
+    .bubble {
+        background: #f3f2f2;
+        color:#4675A8;
+        padding: 4px 4px;
+        position: absolute;
+        border-radius: 0px;
+        transform: translate(-50%, -220%);
+        font-size: 12px;
+      }
+
+    #CreateButton{        
+        border: 3px ;        
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800;
+        padding: 6px;
+        background-color: #4675A8;
+        color: white;    
+    }
+
+    #CreateButton:hover
+    {
+            opacity: 90%;
+    }
+
+    #CreateButton:disabled
+    {
+        background-color: #f3f2f2;
+        color: #4675A8;
+    }
+
+    .center 
+    {
+         display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    
+    .pluginIcon
+    {
+        height: 175px;
+        width: auto;
+        align-self: center;
+        padding-bottom: 0px;
+        transform: translateY(-20px);
+
+    }
+
+    .inlineIcon
+    {
+        height: 18px;
+        width: auto;
+    }
+
+    h1 {        
+        font-size: 25px;
+        font-weight: 800;        
+        padding-bottom: 8px;
+        align-self:center;
+        text-align: center;
+    }
+
+    p {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    form {
+        display: grid;
+        column-gap: 10px;
+        row-gap: 15px;
+    }
+
+    label {
+        font-weight: 400;
+        font-size: 16px;
+        align-self: center;
+        justify-self: start;
+        min-height: 30px;
+    }
+
+    input:not([range]) {
+        border: 1px solid #ffffff;
+        padding-left: 1px;
+        padding-right: 1px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    input:not([range]):hover {
+        border: 2px solid #ffffff;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        outline: none;
+    }
+
+    .range-wrap {
+        --ticksThickness: 1px;
+        --ticksHeight: 30%;
+        --ticksColor: silver;
+        margin: 6px 6px 12px 6px;
+        background: silver;
+        background: linear-gradient(to right, var(--ticksColor) var(--ticksThickness), transparent 1px) repeat-x;
+        background-size: calc(100%/((var(--max) - var(--min)) / var(--step)) - .1%) var(--ticksHeight);
+        background-position: 0 bottom;
+        position: relative;
+    }
+
+    /* min / max labels at the edges */
+    .range-wrap::before, .range-wrap::after {
+        font: 12px monospace;
+        content: counter(x);
+        position: absolute;
+        bottom: -2ch;
+    }
+
+    .range-wrap::before {
+        counter-reset: x var(--min);
+        transform: translateX(-50%);
+    }
+
+    .range-wrap::after {
+        counter-reset: x var(--max);
+        right: 0;
+        transform: translateX(50%);
+    }
+
+    .range-wrap > input {
+        margin: 0 -6px;
+        width: calc(100% + 12px);
+    }
+
+    input[type=button], input[type=submit] {
+        color: white;
+        background-color: #4676a9;
+        border: 1px solid #4676a9;
+        padding: 7px;
+        outline: none;
+        width: auto;
+    }
+
+    input[type=button]:hover, input[type=submit]:hover, 
+    input[type=button]:focus, input[type=submit]:focus {
+        color: white;
+        background-color: #4676a9;
+        border: 2px solid #c3e8f4;
+        padding: 6px;
+        outline: none;
+    }
+
+    ul {
+    }
