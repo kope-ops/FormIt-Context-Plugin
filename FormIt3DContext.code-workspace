@@ -1,0 +1,41 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"node_modules": true
+		}
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+					{
+				"name": "npm install",
+				"type": "node",
+				"request": "launch",
+				"cwd": "${workspaceFolder}",
+				"runtimeExecutable": "npm",
+				"runtimeArgs": ["install"]
+			},
+			{
+				"name": "npm run server",
+				"type": "node",
+				"request": "launch",
+				"cwd": "${workspaceFolder}",
+				"runtimeExecutable": "npm",
+				"runtimeArgs": ["run", "server"]
+			},
+			{
+				"name": "npm run docs",
+				"type": "node",
+				"request": "launch",
+				"cwd": "${workspaceFolder}",
+				"runtimeExecutable": "npm",
+				"runtimeArgs": ["run", "docs"]
+			}
+		]
+	},
+}
