@@ -1,15 +1,11 @@
 # FormIt-Context-Plugin
 Plugin for Autodesk FormIt that allows users to quickly create context (buildings, etc) for a geographical location.
 
+Read more about it from [here](link)!
+
 OpenStreetMap® data was used to generate the result in this plugin: https://www.openstreetmap.org/copyright
 
 ![](https://github.com/matterlab-co/FormIt-Context-Plugin/blob/main/readme_cover.png)
-
-# What is this?
-
-This is a FormIt plugin that helps you create 3d context around your project site
-
-Read more about it from [here](link)!
 
 # How to install?
 >
