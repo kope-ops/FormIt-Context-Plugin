@@ -29,4 +29,4 @@ Read more about it from [here](link)!
 
 # Want to develop this plugin?
 
-This repo includes the source code to this Plugin and users a free to clone/fork from this repository. For more info about how to develop your own plugin, please refer: primer link
+This repo includes the source code to this Plugin and users are welcome to clone/fork from this repository. For more info about how to develop your own plugin, please refer to the [primer](link)!
