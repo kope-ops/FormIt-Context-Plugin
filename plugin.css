@@ -1,9 +1,7 @@
-    .pluginContainer {
+   .pluginContainer {
         font-family: 'Nunito', sans-serif;
-        padding: 10px;
-        color: #4675A8;
-        margin-left: 25px;
-        margin-right: 25px; 
+        padding: 16px;
+        color: #4675A8;        
     }
 
     #ImportCoord{
@@ -13,8 +11,8 @@
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     padding: 6px;
-
     }
+
     #ImportCoord:hover{
         background-color:  #acb5bf48;
         color: #4675A8;
@@ -23,8 +21,8 @@
     .columns
     { 
         display: grid;
-        grid-auto-flow: column;
         grid-column-gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));        
     }
 
     .column
@@ -46,7 +44,6 @@
         font-family: 'Nunito', sans-serif;
         text-align: left;
     }
-
     
     .bubble {
         background: #f3f2f2;
@@ -93,7 +90,6 @@
         align-self: center;
         padding-bottom: 0px;
         transform: translateY(-20px);
-
     }
 
     .inlineIcon
@@ -198,7 +194,4 @@
         border: 2px solid #c3e8f4;
         padding: 6px;
         outline: none;
-    }
-
-    ul {
     }

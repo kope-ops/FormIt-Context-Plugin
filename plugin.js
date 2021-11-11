@@ -2,7 +2,8 @@
 
     const constants = {
         apiTimeout: 25,
-        convertMetersToFeet: 1 
+        convertMetersToFeet: 1,
+        notificationHandle: undefined
     }
 
     /**
@@ -29,7 +30,7 @@
             // Get location info from FormIt        
             await updateCoordinatesFromLocation()
 
-            displayMessage('Retrieved coordinates from location settings')
+            constants.notificationHandle = displayGeneralMessage('Retrieved coordinates from location settings')
 
             // Disable 'Create' button until current operation is completed
             document.getElementById("CreateButton").disabled = true
@@ -59,10 +60,10 @@
 
             document.getElementById("CreateButton").disabled = false
         }
-        catch (e) {
-            displayErrorMessage("An error has occured")
-            displayErrorMessage(e)
+        catch (e) {                        
+            displayErrorMessage("An error has occured. " + e)
             console.error("An error has occured", e)
+            document.getElementById("CreateButton").disabled = false
         }
     }
 
@@ -187,7 +188,7 @@
 
             FormIt.UndoManagement.EndState("Created geometry")
         }))
-        displayMessage(`Created ${(await geometryFormIt).length} features`)
+        displaySuccessMessage(`Created ${(await geometryFormIt).length} features`)
     }
 
     const CoordinateLocationToFeet = (point, origin)=>
@@ -249,19 +250,32 @@
     }
 
     // Show messages with FormIt popUp
-    const displayMessage = async message =>
+    const displayGeneralMessage = async message =>
     {        
-        await FormIt.UI.ShowNotification(message, FormIt.NotificationType.Information, 0);
+        await FormIt.UI.CloseNotification(constants.notificationHandle)
+        constants.notificationHandle = undefined
+        constants.notificationHandle = await FormIt.UI.ShowNotification(message, FormIt.NotificationType.Information, 1 );
     }
 
     const displayWarningMessage = async message =>
     {        
-        await FormIt.UI.ShowNotification(message, FormIt.NotificationType.Warning, 0);
+        await FormIt.UI.CloseNotification(constants.notificationHandle)
+        constants.notificationHandle = undefined
+        constants.notificationHandle = await FormIt.UI.ShowNotification(message, FormIt.NotificationType.Warning, 0);
     }
 
     const displayErrorMessage = async message =>
     {        
-        await FormIt.UI.ShowNotification(message, FormIt.NotificationType.Error, 0);
+        await FormIt.UI.CloseNotification(constants.notificationHandle)
+        constants.notificationHandle = undefined
+        constants.notificationHandle = await FormIt.UI.ShowNotification(message, FormIt.NotificationType.Error, 0);
+    }
+
+    const displaySuccessMessage = async message =>
+    {   
+        await FormIt.UI.CloseNotification(constants.notificationHandle)
+        constants.notificationHandle = undefined
+        constants.notificationHandle = await FormIt.UI.ShowNotification(message, FormIt.NotificationType.Success, 0);
     }
 
     // Trigger execute when the create button is clicked
