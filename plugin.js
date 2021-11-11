@@ -133,10 +133,10 @@
             const storeyHeight = 12 //12 feet (average floor size)
             let height = storeyHeight
 
-            if(!_.isUndefined(feature.properties.building))
+            if(feature.properties.building !== void 0)
                 height = feature.properties.height
 
-            if(!_.isUndefined(feature.properties["building:levels"]))
+            if(feature.properties["building:levels"] !== void 0)
                 height = feature.properties["building:levels"] * storeyHeight
 
             else 
