@@ -1,7 +1,7 @@
 # 3D Context Creator
 Plugin for Autodesk FormIt that allows users to quickly create context (buildings, etc) for a geographical location.
 
-Read more about it from [here](link)!
+Read more about it from [here](https://windows.help.formit.autodesk.com/plug-ins/example-1/3d-context-creator)!
 
 OpenStreetMap® data was used to generate the result in this plugin: https://www.openstreetmap.org/copyright
 
@@ -25,4 +25,4 @@ OpenStreetMap® data was used to generate the result in this plugin: https://www
 
 # Want to develop this plugin?
 
-This repo includes the source code to this Plugin and users are welcome to clone/fork from this repository. For more info about how to develop your own plugin, please refer to the [primer](link)!
+This repo includes the source code to this Plugin and users are welcome to clone/fork from this repository. For more info about how to develop your own plugin, please refer to the [primer](https://windows.help.formit.autodesk.com/plug-ins/how-to-develop-plug-ins)!
