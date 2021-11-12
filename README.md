@@ -1,4 +1,4 @@
-# FormIt-Context-Plugin
+# 3D Context Creator
 Plugin for Autodesk FormIt that allows users to quickly create context (buildings, etc) for a geographical location.
 
 Read more about it from [here](link)!
