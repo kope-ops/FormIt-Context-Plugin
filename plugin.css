@@ -1,7 +1,16 @@
-   .pluginContainer {
+    .pluginContainer {
         font-family: 'Nunito', sans-serif;
         padding: 16px;
-        color: #4675A8;        
+        color: #4675A8;          
+    }
+
+    #pluginFooterDiv {
+        background-color: #f2f2f2;
+        font-family: sans-serif;
+        padding: 15px;
+        position:absolute;
+    	bottom:0;
+        width: 88%;
     }
 
     #ImportCoord{

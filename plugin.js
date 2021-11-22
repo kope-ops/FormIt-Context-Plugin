@@ -286,6 +286,10 @@
         constants.notificationHandle = undefined
         constants.notificationHandle = await FormIt.UI.ShowNotification(message, FormIt.NotificationType.Success, 0);
     }
+    
+    // create the footer    
+    let footerModule = new FormIt.PluginUI.FooterModule;
+    document.body.appendChild(footerModule.element);
 
     // Trigger execute when the create button is clicked
     document.getElementById("CreateButton").addEventListener("click", create3DContext)
