@@ -1,15 +1,38 @@
+    html,
+    body {
+        padding: 0;
+        margin: 0;        
+        height: 100%;
+    }
+    
+    body{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
+        overflow: hidden;
+    }
+    
     .pluginContainer {
         font-family: 'Nunito', sans-serif;
         padding: 16px;
-        color: #4675A8;          
+        color: #4675A8;  
+        flex-grow:1 ;
+        overflow: auto;
+
+        
     }
 
     #pluginFooterDiv {
         background-color: #f2f2f2;
-        font-family: sans-serif;
-        position:absolute;
-    	bottom:0;
+        font-family: sans-serif;        
+        flex-shrink: 0;
         width: 100%;
+        font-size: 16px;
+    }
+
+   .pluginContainer + #pluginFooterContainer {
+        margin-top: 0;
     }
 
     #ImportCoord{
@@ -93,7 +116,7 @@
     
     .pluginIcon
     {
-        height: 175px;
+        height: 125px;
         width: auto;
         align-self: center;
         padding-bottom: 0px;
