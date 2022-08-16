@@ -155,8 +155,6 @@ FormIt3DContextCreator.getGroupInstancesByStringAttributeKey = async function(nH
         }
     }
 
-    console.log(aFinalObjects);
-
     return aFinalObjects;
 }
 
