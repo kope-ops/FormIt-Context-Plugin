@@ -366,7 +366,7 @@ const createFormItGeometry = async (features, center) => {
         })
         FormIt.UndoManagement.EndState("3D Context Creator plugin")
     }))
-    displaySuccessMessage(`Created ${(await geometryFormIt).length} features`)
+    displaySuccessMessage(`Created ${(await geometryFormIt).length} context features.`)
 }
 
 const CoordinateLocationToFeet = (point, origin)=>
@@ -444,7 +444,6 @@ const displayWarningMessage = async message =>
 
 const displayErrorMessage = async message =>
 {        
-
     await FormIt.UI.CloseNotification(constants.notificationHandle)
     constants.notificationHandle = undefined
     constants.notificationHandle = await FormIt.UI.ShowNotification(message, FormIt.NotificationType.Error, 0);
@@ -453,7 +452,6 @@ const displayErrorMessage = async message =>
 
 const displaySuccessMessage = async message =>
 {   
-
     await FormIt.UI.CloseNotification(constants.notificationHandle)
     constants.notificationHandle = undefined
     constants.notificationHandle = await FormIt.UI.ShowNotification(message, FormIt.NotificationType.Success, 0);
