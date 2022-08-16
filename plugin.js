@@ -12,6 +12,9 @@ FormIt3DContextCreator.generateContextButton = undefined;
 // the string attribute key to search for and delete previous context
 FormIt3DContextCreator.generatedContextStringAttributeKey = 'FormIt3DContextCreator::GeneratedContext';
 
+// the layer name for the context buildings containing instance
+FormIt3DContextCreator.generatedContextLayerName = 'Context Buildings';
+
 FormIt3DContextCreator.initializeUI = function()
 {   
     // create an overall container for all objects that comprise the "content" of the plugin
@@ -294,6 +297,11 @@ const createFormItGeometry = async (features, center) => {
     await WSM.Utils.SetOrCreateStringAttributeForObject(contextPlacementHistoryID,
         allContextInstanceID, FormIt3DContextCreator.generatedContextStringAttributeKey, "");
 
+    // put the instance on a layer
+    await FormIt.Layers.AddLayer(0, FormIt3DContextCreator.generatedContextLayerName, true);
+    const layerID = await FormIt.Layers.GetLayerID(FormIt3DContextCreator.generatedContextLayerName);
+    await FormIt.Layers.AssignLayerToObjects(layerID, allContextInstanceID);
+
     // History ID for the context group
     const allContextGroupHistoryID= await WSM.APIGetGroupReferencedHistoryReadOnly(contextPlacementHistoryID, allContextGroupID);
 
@@ -366,7 +374,7 @@ const createFormItGeometry = async (features, center) => {
         })
         FormIt.UndoManagement.EndState("3D Context Creator plugin")
     }))
-    displaySuccessMessage(`Created ${(await geometryFormIt).length} context features.`)
+    displaySuccessMessage(`Created ${(await geometryFormIt).length} context features.\n Use the ` + FormIt3DContextCreator.generatedContextLayerName + ` layer to control visibility.`)
 }
 
 const CoordinateLocationToFeet = (point, origin)=>
