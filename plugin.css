@@ -1,230 +1,142 @@
-    html,
-    body {
-        padding: 0;
-        margin: 0;        
-        height: 100%;
-    }
-    
-    body{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        width: 100%;
-        overflow: hidden;
-    }
-    
-    .pluginContainer {
+html {
+    height: 100%;
+    width: 97%; /* TODO: find out why the html is wider than the page */
+}
+
+a {
+    color: #4676a9;
+}
+
+#setOrUpdateHyperlink {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.contentContainer {
         font-family: 'Nunito', sans-serif;
-        padding: 16px;
-        color: #4675A8;  
-        flex-grow:1 ;
-        overflow: auto;
+        height: 100%;
+}
 
-        
+#generateContextContainer {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+#pluginFooterDiv {
+    background-color: #f2f2f2;
+    font-family: sans-serif;        
+    flex-shrink: 0;
+    width: 100%;
+    font-size: 16px;
+}
+
+.contentContainer + #pluginFooterContainer {
+    margin-top: 0;
+}
+
+.locationStatusIcon {
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+}
+
+.columns
+{ 
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));        
+}
+
+.column
+{
+    display: grid;
+    flex-direction:column;
+} 
+
+.bubble {
+    background: #f3f2f2;
+    color:#4675A8;
+    padding: 4px 4px;
+    position: absolute;
+    border-radius: 0px;
+    transform: translate(-50%, -220%);
+    font-size: 12px;
     }
 
-    #pluginFooterDiv {
-        background-color: #f2f2f2;
-        font-family: sans-serif;        
-        flex-shrink: 0;
-        width: 100%;
-        font-size: 16px;
-    }
-
-   .pluginContainer + #pluginFooterContainer {
-        margin-top: 0;
-    }
-
-    #ImportCoord{
-    background-color: transparent;
-    border: 3px solid #4675A8;
-    color: #4675A8;
+#CreateButton{        
+    border: 3px ;        
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     padding: 6px;
-    }
+    background-color: #4675A8;
+    color: white;    
+}
 
-    #ImportCoord:hover{
-        background-color:  #acb5bf48;
-        color: #4675A8;
-    }
+#CreateButton:hover
+{
+    opacity: 90%;
+}
 
-    .columns
-    { 
-        display: grid;
-        grid-column-gap: 10px;
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));        
-    }
+#CreateButton:disabled
+{
+    background-color: #f3f2f2;
+    color: #4675A8;
+}
 
-    .column
-    {
-        display: grid;
-        flex-direction:column;
-    }
-    
-    #Latitude
-    {
-        color: #81888f;
-        font-family: 'Nunito', sans-serif;
-        text-align: left;
-    }
-    
-    #Longitude
-    {
-        color: #81888f;
-        font-family: 'Nunito', sans-serif;
-        text-align: left;
-    }
-    
-    .bubble {
-        background: #f3f2f2;
-        color:#4675A8;
-        padding: 4px 4px;
-        position: absolute;
-        border-radius: 0px;
-        transform: translate(-50%, -220%);
-        font-size: 12px;
-      }
+.center 
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 
-    #CreateButton{        
-        border: 3px ;        
-        font-family: 'Nunito', sans-serif;
-        font-weight: 800;
-        padding: 6px;
-        background-color: #4675A8;
-        color: white;    
-    }
+.pluginIcon
+{
+    height: 125px;
+    width: auto;
+    align-self: center;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
 
-    #CreateButton:hover
-    {
-            opacity: 90%;
-    }
+.setLocationIconButton {
+    display: block;
+    height: 20px;
+    width: 20px;
+}
 
-    #CreateButton:disabled
-    {
-        background-color: #f3f2f2;
-        color: #4675A8;
-    }
+.inlineIcon
+{
+    height: 18px;
+    width: auto;
+}
 
-    .center 
-    {
-         display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
-    }
-    
-    .pluginIcon
-    {
-        height: 125px;
-        width: auto;
-        align-self: center;
-        padding-bottom: 0px;
-        transform: translateY(-20px);
-    }
+h1 {        
+    font-size: 25px;
+    font-weight: 900;        
+    padding-bottom: 8px;
+    align-self:center;
+    text-align: center;
+    font-family: 'Nunito', sans-serif !important;
+    color: grey !important;
+}
 
-    .inlineIcon
-    {
-        height: 18px;
-        width: auto;
-    }
+p {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 
-    h1 {        
-        font-size: 25px;
-        font-weight: 900;        
-        padding-bottom: 8px;
-        align-self:center;
-        text-align: center;
-        font-family: 'Nunito', sans-serif !important;
-        color: #4675A8 !important;
-    }
+form {
+    display: grid;
+    column-gap: 10px;
+}
 
-    p {
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-
-    form {
-        display: grid;
-        column-gap: 10px;
-        row-gap: 15px;
-    }
-
-    label {
-        font-weight: 400;
-        font-size: 16px;
-        align-self: center;
-        justify-self: start;
-        min-height: 30px;
-    }
-
-    input:not([range]) {
-        border: 1px solid #ffffff;
-        padding-left: 1px;
-        padding-right: 1px;
-        padding-top: 4px;
-        padding-bottom: 4px;
-    }
-
-    input:not([range]):hover {
-        border: 2px solid #ffffff;
-        padding-left: 0px;
-        padding-right: 0px;
-        padding-top: 3px;
-        padding-bottom: 3px;
-        outline: none;
-    }
-
-    .range-wrap {
-        --ticksThickness: 1px;
-        --ticksHeight: 30%;
-        --ticksColor: silver;
-        margin: 6px 6px 12px 6px;
-        background: silver;
-        background: linear-gradient(to right, var(--ticksColor) var(--ticksThickness), transparent 1px) repeat-x;
-        background-size: calc(100%/((var(--max) - var(--min)) / var(--step)) - .1%) var(--ticksHeight);
-        background-position: 0 bottom;
-        position: relative;
-    }
-
-    /* min / max labels at the edges */
-    .range-wrap::before, .range-wrap::after {
-        font: 12px monospace;
-        content: counter(x);
-        position: absolute;
-        bottom: -2ch;
-    }
-
-    .range-wrap::before {
-        counter-reset: x var(--min);
-        transform: translateX(-50%);
-    }
-
-    .range-wrap::after {
-        counter-reset: x var(--max);
-        right: 0;
-        transform: translateX(50%);
-    }
-
-    .range-wrap > input {
-        margin: 0 -6px;
-        width: calc(100% + 12px);
-    }
-
-    input[type=button], input[type=submit] {
-        color: white;
-        background-color: #4676a9;
-        border: 1px solid #4676a9;
-        padding: 7px;
-        outline: none;
-        width: auto;
-    }
-
-    input[type=button]:hover, input[type=submit]:hover, 
-    input[type=button]:focus, input[type=submit]:focus {
-        color: white;
-        background-color: #4676a9;
-        border: 2px solid #c3e8f4;
-        padding: 6px;
-        outline: none;
-    }
+label {
+    font-weight: 400;
+    font-size: 16px;
+    align-self: center;
+    justify-self: start;
+    min-height: 30px;
+}
