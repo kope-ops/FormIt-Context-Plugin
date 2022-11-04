@@ -57,6 +57,7 @@ FormIt3DContextCreator.initializeUI = function()
     // status message and icon
     FormIt3DContextCreator.locationStatusContainer = new FormIt.PluginUI.MultiModuleContainer();
     FormIt3DContextCreator.locationStatusContainer.element.style.alignItems = 'center';
+    FormIt3DContextCreator.locationStatusContainer.element.style.marginTop = '30px';
     contentContainer.appendChild(FormIt3DContextCreator.locationStatusContainer.element);
     // the status icon
     FormIt3DContextCreator.locationStatusIcon = document.createElement('img');
@@ -69,7 +70,7 @@ FormIt3DContextCreator.initializeUI = function()
     // the generate button 
     FormIt3DContextCreator.generateContextButton = new FormIt.PluginUI.Button('Generate 3D Context', create3DContext);
     FormIt3DContextCreator.generateContextButton.id = 'CreateButton';
-    FormIt3DContextCreator.generateContextButton.element.style.marginTop = '40px';
+    FormIt3DContextCreator.generateContextButton.element.style.marginTop = '10px';
     contentContainer.appendChild(FormIt3DContextCreator.generateContextButton.element);
 
     // create the footer    
@@ -83,6 +84,13 @@ FormIt3DContextCreator.updateUI = async function()
     let currentLocation = await FormIt.SunAndLocation.GetProjectAddress();
     let bIsCurrentLocationSet = currentLocation != '';
 
+    // get the extents of the satellite image
+    let satelliteImageRadius = await FormIt3DContextCreator.getContextRadiusFromSatelliteImageSize();
+    let bIsSatelliteImagePresent = satelliteImageRadius != 0;
+
+    // to use this plugin, both a location and satellite image are required
+    let bCanGenerate3DContext = bIsCurrentLocationSet && bIsSatelliteImagePresent;
+
     // set the location input to the current address
     FormIt3DContextCreator.locationInput.value = bIsCurrentLocationSet ? currentLocation : '(not set)';
 
@@ -90,17 +98,29 @@ FormIt3DContextCreator.updateUI = async function()
     FormIt3DContextCreator.setOrUpdateLocationButton.innerHTML = bIsCurrentLocationSet ? 'Update location...' : 'Set location...';
 
     // update the generate button style based on whether a location is set
-    FormIt3DContextCreator.generateContextButton.element.disabled = bIsCurrentLocationSet ? false : true;
+    FormIt3DContextCreator.generateContextButton.element.disabled = bCanGenerate3DContext ? false : true;
 
-    // update the status icon based on whether a location is set
-    FormIt3DContextCreator.locationStatusIcon.src = bIsCurrentLocationSet ? './assets/images/location-set.svg' : './assets/images/location-not-set.svg';
-    FormIt3DContextCreator.locationStatusIcon.title = bIsCurrentLocationSet ? 'Location is set!' : 'Please set the location of this project first.';
+    // update the status icon based on whether enough data is present to generate 3D context
+    FormIt3DContextCreator.locationStatusIcon.src = bCanGenerate3DContext ? './assets/images/location-set.svg' : './assets/images/location-not-set.svg';
 
-    // update the status text based on whether a location is set
-    FormIt3DContextCreator.locationStatusText.innerHTML = bIsCurrentLocationSet ? 'Location set!' : 'Set a location to continue.';
+    // define the messages that might appear based on which data is missing
+    let sNeedLocationMessage = 'Set a location to continue.';
+    let sNeedSatelliteImageMessage = 'A satellite image is required. Click "Update location..." and import satellite imagery to continue.';
+    let sReadyToGenerateMessage = 'Ready to generate!';
 
-    // update the display of the status icon and text based on whether a location is set
-    FormIt3DContextCreator.locationStatusContainer.element.style.display = bIsCurrentLocationSet ? 'none' : 'flex';
+    // update the icon tooltip and status text based on which data is missing
+    if (!bIsCurrentLocationSet)
+    {
+        FormIt3DContextCreator.locationStatusText.innerHTML = sNeedLocationMessage;
+    }
+    else if (bIsCurrentLocationSet && !bIsSatelliteImagePresent)
+    {
+        FormIt3DContextCreator.locationStatusText.innerHTML = sNeedSatelliteImageMessage;
+    }
+    else 
+    {
+        FormIt3DContextCreator.locationStatusText.innerHTML = sReadyToGenerateMessage;
+    }
 }
 
 FormIt3DContextCreator.launchSetLocation = async function()
