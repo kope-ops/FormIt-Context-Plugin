@@ -20,18 +20,28 @@
         FormItInterface.Initialize(async function () {
 
             // on location set, update the UI to capture the new location
+            // and indicate whether 3D context can be generated
+            FormItInterface.SubscribeMessage("FormIt.Message.kSetLocation", async function(msg)
+            {
+                await FormIt3DContextCreator.updateUI();
+            });
+
+            // on satellite image import, update the UI to capture the new location
+            // and indicate whether 3D context can be generated
             FormItInterface.SubscribeMessage("FormIt.Message.kSatelliteImageIsVisible", async function(msg)
             {
                 await FormIt3DContextCreator.updateUI();
             });
 
             // on new sketch, update the UI to capture the new location
+            // and indicate whether 3D context can be generated
             FormItInterface.SubscribeMessage("FormIt.Message.kNewModelRequested", async function(msg)
             {
                 await FormIt3DContextCreator.updateUI();
             });
 
             // on open file, update the UI to capture the new location
+            // and indicate whether 3D context can be generated
             FormItInterface.SubscribeMessage("FormIt.Message.kLoadComplete", async function(msg)
             {
                 await FormIt3DContextCreator.updateUI();
